@@ -49,7 +49,7 @@
 #define TCP_IP_DATA_FEATURE
 
 //NOTIFICATION_FEATURE : allow to push notifications
-#define NOTIFICATION_FEATURE
+//#define NOTIFICATION_FEATURE
 
 //MKS TFT WIFI support see Wiki for wiring
 //#define MKS_TFT_FEATURE
@@ -74,7 +74,7 @@
 //#define RECOVERY_FEATURE
 
 //DIRECT_PIN_FEATURE: allow to access pin using ESP201 command
-#define DIRECT_PIN_FEATURE
+//#define DIRECT_PIN_FEATURE
 
 //ESP_OLED_FEATURE: allow oled screen output
 //#define ESP_OLED_FEATURE
@@ -94,7 +94,7 @@
 //Extra features /////////////////////////////////////////////////////////////////////////
 
 //Workaround for Marlin 2.X coldstart
-//#define DISABLE_CONNECTING_MSG
+#define DISABLE_CONNECTING_MSG
 
 //Serial rx buffer size is 256 but can be extended
 #define SERIAL_RX_BUFFER_SIZE 512
