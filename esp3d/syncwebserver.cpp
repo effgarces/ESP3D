@@ -122,7 +122,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
         //USE_SERIAL.printf("[%u] Disconnected!\n", num);
         break;
     case WStype_CONNECTED: {
-        IPAddress ip = socket_server->remoteIP(num);
+        //IPAddress ip = socket_server->remoteIP(num);
         //USE_SERIAL.printf("[%u] Connected from %d.%d.%d.%d url: %s\n", num, ip[0], ip[1], ip[2], ip[3], payload);
         String s = "CURRENT_ID:" + String(num);
         // send message to client
@@ -948,7 +948,7 @@ void handle_web_command()
     //if it is for ESP module [ESPXXX]<parameter>
     cmd.trim();
     int ESPpos = cmd.indexOf("[ESP");
-    if (ESPpos>-1) {
+    if (ESPpos==0) {
         //is there the second part?
         int ESPpos2 = cmd.indexOf("]",ESPpos);
         if (ESPpos2>-1) {
@@ -961,7 +961,7 @@ void handle_web_command()
                 return;
             }
             //is there space for parameters?
-            if (ESPpos2<cmd.length()) {
+            if ((uint)ESPpos2<cmd.length()) {
                 cmd_part2=cmd.substring(ESPpos2+1);
             }
             //if command is a valid number then execute command
@@ -1137,7 +1137,7 @@ void handle_web_command_silent()
     //if it is for ESP module [ESPXXX]<parameter>
     cmd.trim();
     int ESPpos = cmd.indexOf("[ESP");
-    if (ESPpos>-1) {
+    if (ESPpos==0) {
         //is there the second part?
         int ESPpos2 = cmd.indexOf("]",ESPpos);
         if (ESPpos2>-1) {
@@ -1145,7 +1145,7 @@ void handle_web_command_silent()
             String cmd_part1=cmd.substring(ESPpos+4,ESPpos2);
             String cmd_part2="";
             //is there space for parameters?
-            if (ESPpos2<cmd.length()) {
+            if ((uint)ESPpos2<cmd.length()) {
                 cmd_part2=cmd.substring(ESPpos2+1);
             }
             //if command is a valid number then execute command
@@ -1296,7 +1296,7 @@ void SDFile_serial_upload()
                 //**************
                 //upload is on going with data coming by 2K blocks
             } else if(upload.status == UPLOAD_FILE_WRITE) { //if com error no need to send more data to serial
-                for (int pos = 0;( pos < upload.currentSize) && (web_interface->_upload_status == UPLOAD_STATUS_ONGOING); pos++) { //parse full post data
+                for (uint pos = 0;( pos < upload.currentSize) && (web_interface->_upload_status == UPLOAD_STATUS_ONGOING); pos++) { //parse full post data
                     //feed watchdog
                     CONFIG::wait(0);
                     //it is a comment

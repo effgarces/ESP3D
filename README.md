@@ -1,6 +1,6 @@
 <span align="left"><img src="https://github.com/luc-github/ESP3D/blob/2.1/images/ESP3D.png" width="200px"/></span><span align="left">Firmware for ESP8266/ESP8285  and ESP32 used with 3D printer</span>
 
-[Latest stable release ![Release Version](https://img.shields.io/github/release/luc-github/ESP3D.svg?style=plastic) ![Release Date](https://img.shields.io/github/release-date/luc-github/ESP3D.svg?style=plastic)](https://github.com/luc-github/ESP3D/releases/latest/) [![Travis (.org) branch](https://img.shields.io/travis/luc-github/ESP3D/2.1?style=plastic)](https://travis-ci.org/luc-github/ESP3D) [![Release Version](https://img.shields.io/github/v/release/luc-github/ESP3D-WEBUI?color=green&include_prereleases&label=WebUI&style=plastic)](https://github.com/luc-github/ESP3D-WEBUI/tree/2.1)      
+[Latest stable release ![Release Version](https://img.shields.io/github/release/luc-github/ESP3D.svg?style=plastic) ![Release Date](https://img.shields.io/github/release-date/luc-github/ESP3D.svg?style=plastic)](https://github.com/luc-github/ESP3D/releases/latest/) [![Travis (.org) branch](https://img.shields.io/travis/luc-github/ESP3D/2.1.x?style=plastic)](https://travis-ci.org/luc-github/ESP3D) [![Release Version](https://img.shields.io/github/v/release/luc-github/ESP3D-WEBUI?color=green&include_prereleases&label=WebUI&style=plastic)](https://github.com/luc-github/ESP3D-WEBUI/tree/2.1)      
 please use Arduino ide 1.8.9+ with [![Release Version](https://img.shields.io/badge/ESP32-1.0.4-green?style=plastic)](https://github.com/espressif/arduino-esp32/releases/tag/1.0.4) or [![Release Version](https://img.shields.io/badge/ESP8266-2.5.2-green?style=plastic)](https://github.com/esp8266/Arduino/releases/tag/2.5.2)
 
 [Latest development version ![Development Version](https://img.shields.io/badge/Devt-v3.0-yellow?style=plastic) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/luc-github/ESP3D/3.0?style=plastic)](https://github.com/luc-github/ESP3D/tree/3.0) [![Travis (.org) branch](https://img.shields.io/travis/luc-github/ESP3D/3.0?style=plastic)](https://travis-ci.org/luc-github/ESP3D) [![Development  Version](https://img.shields.io/badge/Devt-v3.0-yellow?style=plastic&label=WebUI)](https://github.com/luc-github/ESP3D-WEBUI/tree/3.0)   
@@ -73,11 +73,10 @@ Check wiki : https://github.com/luc-github/ESP3D/wiki/Direct-ESP3D-commands
 ## Installation
 Feedback on 2.0 was : ESP3D being a library is not really useful and make setup more complex, so now we are back to simple application.   
 
-1. Please follow installation of the ESP core you want to use : [ESP8266 core version](https://github.com/esp8266/Arduino)  or [ESP32 core version](https://github.com/espressif/arduino-esp32)   
-2.  Add manually libraries present in libraries directory to your arduino libraries directory (no need if you use platformIO) -these versions are verified to work with ESP3D, any others (newer version) may cause untested behavior.  
-
-Use webserver support (recommended as stable), asyncwebserver support is no more stable on ESP3D 
-* arduinoWebSockets from @Links2004  
+1. If you haven't already set up Arduino IDE for ESPs then do so for [ESP8266](https://github.com/esp8266/Arduino) or [ESP32 core version](https://github.com/espressif/arduino-esp32).
+2. Download the [latest release](https://github.com/luc-github/ESP3D/releases/) and manually copy the libraries present in the `ESP3D-x.y.z/libraries` directory into your `Arduino/libraries` directory.  (*no need if using platformIO*).  *These versions are verified to work with ESP3D, any others (newer version) may cause untested behavior.*
+- Use webserver support (recommended as stable), asyncwebserver support is no longer stable on ESP3D 
+- * arduinoWebSockets from @Links2004
  
 Generic ones:      
 Specific for ESP32    
@@ -106,21 +105,27 @@ if embedded uploader does not show up you can force it ti display using : http:/
 * To style the code before pushing PR please use [astyle --style=otbs *.h *.cpp *.ino](http://astyle.sourceforge.net/)   
 * The embedded page is created using nodejs then gulp to generate a compressed html page (tool.html.gz), all necessary modules will be installed using the build.bat, you also need bin2c tool (https://sourceforge.net/projects/bin2c/) to generate the h file from the binary,  installation and build is done using the build.bat.   
 * The corresponding UI is located [here](https://github.com/luc-github/ESP3D-WEBUI/tree/2.1)
-* An optional UI was development using old repetier UI - check [UI\repetier\testui.htm] (https://github.com/luc-github/ESP3D/blob/master/UI/repetier/testui.htm) file   
+* An optional UI was development using old repetier UI - check [UI\repetier\testui.htm] (https://raw.githubusercontent.com/wiki/luc-github/ESP3D/UI/repetier/testui.htm) file   
 
  
 ## Need more information about supported boards or wiring ?
 [Check the wiki](https://github.com/luc-github/ESP3D/wiki)
 
 ## :question:Any question ?   
-Check [Wiki](https://github.com/luc-github/ESP3D/wiki/Install-Instructions) or [![Join the chat at https://gitter.im/luc-github/ESP3D](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/luc-github/ESP3D?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)   
+Check [Wiki](https://github.com/luc-github/ESP3D/wiki/Install-Instructions) or Join the chat at [Discord server](https://discord.gg/Z4ujTwE)   
 
 ## :exclamation:Any issue/feedback ?    
-Check [Wiki](https://github.com/luc-github/ESP3D/wiki/Install-Instructions) and [FAQ](https://github.com/luc-github/ESP3D/issues?utf8=%E2%9C%93&q=label%3AFAQ+) or [submit ticket](https://github.com/luc-github/ESP3D/issues)    
+Check [Wiki](https://github.com/luc-github/ESP3D/wiki/Install-Instructions) and [FAQ](https://github.com/luc-github/ESP3D/discussions?discussions_q=category%3AF.A.Q) 
+If you still have issue: [submit ticket](https://github.com/luc-github/ESP3D/issues)    
+If it is not an issue join discussion [here](https://github.com/luc-github/ESP3D/discussions)
+
+    
 
 ## ESP3D is used by :
 * Opensource version is used by various boards like : https://www.aliexpress.com/wholesale?SearchText=esp3d&opensearch=true&switch_new_app=y
 and https://youtu.be/XoWW0aU6DGE?t=76  
+
+This is for information only - I am not linked to these products, it is just a search result of a query using ESP3D as keyword. So I am not responsible of any usage of them.
 
 
 * Custom version (not this repository) is used on azteeg mini wifi : http://www.panucatt.com/azteeg_X5_mini_reprap_3d_printer_controller_p/ax5mini.htm    
